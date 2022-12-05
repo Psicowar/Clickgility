@@ -1,64 +1,94 @@
-playBtn.addEventListener("click", showEasyPage)
-startBtn.addEventListener("click", startEasyGame)
-hardGameBtn.addEventListener("click", startHardGame)
+playBtn.addEventListener("click", showEasyPage);
+startBtn.addEventListener("click", startEasyGame);
+hardGameBtn.addEventListener("click", startHardGame);
+finishBtn.addEventListener("click", showInitialPage);
+clicksEasyGame.addEventListener("click", clickEasy);
+scoreDetailsBtn.addEventListener("click", scoreDetails);
+
 
 let threeSec = 3;
 let tenSec = 10;
+let userNameValue = "";
 
 // Hides initial page and shows games section
 
-let user = new userScore();
 
 
 function showEasyPage() {
-    // initialPage.classList = ("hidden-section section-styles");
-    playSection.classList = ("section-styles");
-
-    // console.log("Nam e Button: " + userNameBtn.value)
-
-    mainGameSection.classList = ("play-page-section");
-    //user = new UserScore(userNameBtn.value, "", "");
-    user.userName = userNameBtn.value;
-    user.clicksEasy = 5;
-    user.clicksHard = 51;
-
-    // console.log(user);
-    saveUserScore();
+    initialPage.classList = ("hidden-section section-styles");
+    playSectionEasy.classList = ("section-styles");
+    mainGameSectionEasy.classList = ("play-page-section");
 }
+
+
+
 
 // shows 3s t   imer when clicking start and hides main-game-section
 
 function startEasyGame() {
 
-    mainGameSection.classList = ("play-page-style hidden-section");
+    mainGameSectionEasy.classList = ("play-page-style hidden-section");
     timer3s.classList = ("play-page-style");
+    userNameValue = userNameBtn.value;
+
 
     countdown3s();
     
     //timeout 3 s
     setTimeout(() => {
-        // timer3s.classList = ("play-page-style hidden-section");
-        easyGame.classList = ("play-page-style");
+        timer3s.classList = ("play-page-style hidden-section");
+        clicksEasyGame.classList = ("play-page-style");
          //timeout 10 sec
          setTimeout(() => {
              congratulations.classList = ("play-page-style");
-             easyGame.classList = ("play-page-style hidden-section");
+             clicksEasyGame.classList = ("play-page-style hidden-section");
              hiddenMessage.classList = ("congratulations-message");
          }, 10000);
      }, 3000);
 
      //end easy mode
-     user.clicksEasy = 2;
 }
 
+
+
 function startHardGame() {
-    easyGame.classList = ("play-page-style hidden-section");
-    hardGame.classList = ("play-page-style");
-
-
+    
+    clicksEasyGame.classList = ("play-page-style hidden-section");
+    playSectionHard.classList = ("section-styles");
+    congratulations.classList = ("play-page-style hidden-section");
+    hiddenMessage.classList = ("congratulations-message hidden-message");
+    timer3sHard.classList = ("play-page-style");
+    playSectionEasy.classList = ("section-styles hidden-section");
+    playSectionHard.classList = ("section-styles");
+    
+    countdown3s();
+    
+    setTimeout(() => {
+        hardGame.classList = ("play-page-style");
+         //timeout 10 sec
+         setTimeout(() => {
+             congratulations.classList = ("play-page-style");
+             hardGame.classList = ("play-page-style hidden-section");
+             hiddenMessage.classList = ("congratulations-message");
+             playSectionHard.classList = ("section-styles hidden-section");
+             scoreButton.classList = ("score-button");
+             
+         }, 10000);
+     }, 3000);
+    
 
     //save userScore
+}
 
+
+function scoreDetails() {
+    user = new userScore(userNameValue, countClickEasy, "");
+    finishPage.classList = ("section-styles");
+}
+
+
+function showInitialPage() {
+    timer3sHard.classList = ("play-page-style hidden-section")
 }
 
 function saveUserScore() {
@@ -104,10 +134,15 @@ function saveUserScore() {
 function countdown3s () {
 
     if (threeSec == 0){
-        timer3s.classList = (" play-page-style hidden-section");
+        timer3s.classList = ("play-page-style hidden-section");
+        timer3sHard.classList = ("play-page-style hidden-section");
+        threeSec = 3;
+        countdownHard.textContent = "";
+        console.log(threeSec)
         return;
     } else {
         countdown3.textContent = threeSec;
+        countdownHard.textContent = threeSec;
         setTimeout(() => {
             threeSec--;
             countdown3s();
@@ -118,4 +153,4 @@ function countdown3s () {
 
 // let user = new userScore (userNameBtn.value, clicksEasy, clicksHard)
 
-easyGame.addEventListener("click", countClickEasy);
+

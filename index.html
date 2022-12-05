@@ -17,7 +17,7 @@
   <header>
     <div class="head">
       <img class="logo-img" src="logo1.png" alt="Image logo" />
-      <p class="title-text">Clickgility</p>
+      <p class="title-text" id="effect">Clickgility</p>
     </div>
   </header>
 
@@ -25,13 +25,16 @@
 
     <section class="section-styles" id="initial-id-page">
       <input class="user-name" placeholder="Write your UserName" type="text"/><br>
-      <button class="initial-button" id="">Play!</button>
+      <div class="button initial-button">
+        Let's Play!
+        <div></div>
+      </div>
     </section>
 
 
-    <section class="section-styles hidden-section" id="games-section">
+    <section class="section-styles hidden-section" id="games-section-easy">
 
-      <div class="play-page-style hidden-section" id="main-game-section">
+      <div class="play-page-style hidden-section" id="main-game-section-easy">
         <p>Welcome! Let's see how many clicks you do in 10 seconds! Press Start</p>
         <button class="start-button easy-button">Start</button>
         <div></div>
@@ -40,14 +43,14 @@
 
 
 <!-- Contador 3 segundos -->
+
       <div class="play-page-style hidden-section" id="timer-3s">
-      <p class="countdown-3"></p>  
+        <p class="countdown-3"></p>  
       </div>
-      
+
+      <!-- Timeout 10 sec -->
       <div class="play-page-style hidden-game" id="easy-game">
         <p class="hidden-message countdown">TIMER</p> 
-      
-        <!-- Timeout 10 sec -->
       </div>
 
 <!-- guardar resultado numero clicks en localStorage -->
@@ -63,21 +66,36 @@
       </div>
 
 
-      <div class="play-page-style hidden-game" id="hard-game">
-        
-        <p class="hidden-message">TIMER</p>
+      
 
-        <!-- Timeout 10 sec -->
-
-        <div class="hidden-section">
-          <p class="congratulations-message">Congratulations!!</p>
-        </div>
-      </div>
-      <!-- Timer 10 sec -->
-
+      
 
     </section>
+     
+    <section class="section-styles hidden-section" id="games-section-hard">
 
+      <div class="play-page-style hidden-section" id="timer-3s-hard">
+        <p class="countdown-3 countdown-hard"></p>  
+      </div>
+
+      <div class="play-page-style hidden-game" id="hard-game">
+        <p class="hidden-message countdown">TIMER</p> 
+      </div>
+
+        <!-- Timeout 10 sec -->
+      
+          
+
+
+      <div class="hidden-section score-button">
+        <button class="score-details">Check your score!</button>
+      </div>
+
+      
+     
+      <!-- Timer 10 sec -->
+
+    </section>
 
     <section class="section-styles hidden-section" id="finish-page">
         <div>
@@ -96,6 +114,6 @@
   </body>
   <footer>
     <div class="squad-name">SQUAD LOVELACE</div>
+    <img class="logo-img2" src="logo1.png" alt="Image logo" />
   </footer>
 </html>
-dasdasd
