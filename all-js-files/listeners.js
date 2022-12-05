@@ -37,7 +37,7 @@ function startEasyGame() {
     //timeout 3 s
     setTimeout(() => {
         timer3s.classList = ("play-page-style hidden-section");
-        clicksEasyGame.classList = ("play-page-style");
+        clicksEasyGame.classList = ("play-page-style start-button");
          //timeout 10 sec
          setTimeout(() => {
              congratulations.classList = ("play-page-style");
