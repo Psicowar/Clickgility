@@ -1,30 +1,24 @@
 playBtn.addEventListener("click", showEasyPage)
 startBtn.addEventListener("click", startEasyGame)
-hardGameBtn.addEventListener("click", startHardGame)
+hardGame.addEventListener("click", startHardGame)
+hardGameBtn.addEventListener("click", showFinishPage)
+
 
 let threeSec = 3;
 let tenSec = 10;
 
 // Hides initial page and shows games section
 
-let user = new userScore();
 
 
 function showEasyPage() {
-    // initialPage.classList = ("hidden-section section-styles");
+    initialPage.classList = ("hidden-section section-styles");
     playSection.classList = ("section-styles");
-
-    // console.log("Nam e Button: " + userNameBtn.value)
-
     mainGameSection.classList = ("play-page-section");
-    //user = new UserScore(userNameBtn.value, "", "");
-    user.userName = userNameBtn.value;
-    user.clicksEasy = 5;
-    user.clicksHard = 51;
-
-    // console.log(user);
-    saveUserScore();
 }
+
+
+
 
 // shows 3s t   imer when clicking start and hides main-game-section
 
@@ -37,7 +31,7 @@ function startEasyGame() {
     
     //timeout 3 s
     setTimeout(() => {
-        // timer3s.classList = ("play-page-style hidden-section");
+        timer3s.classList = ("play-page-style hidden-section");
         easyGame.classList = ("play-page-style");
          //timeout 10 sec
          setTimeout(() => {
@@ -48,18 +42,39 @@ function startEasyGame() {
      }, 3000);
 
      //end easy mode
-     user.clicksEasy = 2;
 }
 
+
+
 function startHardGame() {
+    timer3sHard.classList = ("play-page-style");
     easyGame.classList = ("play-page-style hidden-section");
-    hardGame.classList = ("play-page-style");
-
-
+    
+    
+    countdown3s();
+    
+    setTimeout(() => {
+        hardGame.classList = ("play-page-style");
+         //timeout 10 sec
+         setTimeout(() => {
+             congratulations.classList = ("play-page-style");
+             hardGame.classList = ("play-page-style hidden-section");
+             hiddenMessage.classList = ("congratulations-message");
+         }, 10000);
+     }, 3000);
+    
 
     //save userScore
 
 }
+
+
+function showFinishPage() {
+    hardGame.classList = ("play-page-style");
+    congratulations.classList = ("play-page-style hidden-section");
+    hiddenMessage.classList = ("congratulations-message hidden-message")
+}
+
 
 function saveUserScore() {
     let userArray = [user]
@@ -104,10 +119,14 @@ function saveUserScore() {
 function countdown3s () {
 
     if (threeSec == 0){
-        timer3s.classList = (" play-page-style hidden-section");
+        timer3s.classList = ("play-page-style hidden-section");
+        timer3sHard.classList = ("play-page-style hidden-section");
+        threeSec = 3;
+        console.log(threeSec)
         return;
     } else {
         countdown3.textContent = threeSec;
+        countdownHard.textContent = threeSec;
         setTimeout(() => {
             threeSec--;
             countdown3s();
