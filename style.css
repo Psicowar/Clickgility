@@ -15,25 +15,24 @@ body, html{
 .title-text {
 	display: flex;
     font-family: typeBomb;
-    text-shadow: 5px 5px white;
+    text-shadow: 5px 5px rgb(15, 160, 170);
 	text-align: center;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
 	font-size: 5rem;
+    margin-top: 30px;
+    user-select: none;
 }
 
 
 #effect {
 	display: inline-block;
-	font-size: 150px;
-	text-shadow: 0 0 10px #222,1px 1px  0 #450505;
-	color: red;
-	animation: latidos 2s infinite;
+	animation: latidos 3s infinite;
 	transform-origin: center;
 }
 
-@keyframes effect {
+@keyframes latidos {
     from { transform: none; }
     50% { transform: scale(1.4); }
     to { transform: none; }
@@ -48,15 +47,57 @@ body, html{
 	height: 150px;
 }
 
+#initial-id-page {
+    background-image: url(click.png);
+    height: 500px;
+}
+
+.button {
+    backface-visibility: hidden;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+    background: #393e46;
+    border-radius: 100px;
+    border: 5px solid rgb(15, 160, 170);
+    border-width: 5px 5px 5px 5px;
+    padding: 6px 20px 4px 20px;
+    color: rgb(15, 160, 170);
+    font-size: 15px;
+    font-family: typeBomb;
+    font-style: normal;
+    letter-spacing: 1px;
+    user-select: none;
+  }
+  .button > div {
+    color: #999;
+    font-size: 10px;
+    font-family: Helvetica Neue;
+    font-weight: initial;
+    font-style: normal;
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+  }
+  .button > i {
+    font-size: 1em;
+    border-radius: 0px;
+    border: 0px solid transparent;
+    border-width: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    position: static;
+  }
+
 .logo-img {
     height: 150px;
 	position: absolute;
 }
 
-/* .logo-img2 {
+.logo-img2 {
     height: 150px;
-    width: 400px;
-} */
+	position: absolute right;
+}
 
 .section-styles {
     display: flex;
@@ -71,37 +112,41 @@ body, html{
 .user-name {
 	margin-bottom: 50px;
     text-align: center;
+    font-family: typeBomb;
     width: 200px;
-    border-radius: 5px;
-    border-color: rgba(111, 111, 111, 0.447);
-}
-
-.initial-button {
-    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    border-color: rgb(15, 160, 170);
     cursor: pointer;
+    user-select: none;
 }
-
 
 #message-box {
     background-color: lightcoral;
-    
 }
 
+.squad-name {
+    display: absolute;
+    text-align: center;
+    background-color: #393e46;
+    font-family: typeBomb;
+    font-size: 70px;
+    text-shadow: 5px 5px rgb(15, 160, 170);
+    user-select: none;
+}
 
 footer {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: aquamarine;
-    height: 5vh;
+    align-items: right;
+    background-color: #393e46;
+    justify-content: right;
+	height: 150px;
 }
 
 #easy-game {
     border: 1px solid black;
     background-color: lightgreen;
 }
-
 
 .play-page-style{
     box-sizing: border-box;
@@ -110,16 +155,9 @@ footer {
     background: aqua;
 }
 
-#hard-game {
-    background:lightcoral;
-}
-
 .squad-name {
     display: block;
 }
-
-
-
 
 .hidden-section {
 	display: none;
