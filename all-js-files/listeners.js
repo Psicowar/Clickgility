@@ -1,6 +1,8 @@
 playBtn.addEventListener("click", showEasyPage)
 startBtn.addEventListener("click", startEasyGame)
-hardGameBtn.addEventListener("click", startHardGame)
+hardGame.addEventListener("click", startHardGame)
+hardGameBtn.addEventListener("click", showFinishPage)
+
 
 let threeSec = 3;
 let tenSec = 10;
@@ -14,6 +16,9 @@ function showEasyPage() {
     playSection.classList = ("section-styles");
     mainGameSection.classList = ("play-page-section");
 }
+
+
+
 
 // shows 3s t   imer when clicking start and hides main-game-section
 
@@ -39,16 +44,37 @@ function startEasyGame() {
      //end easy mode
 }
 
+
+
 function startHardGame() {
+    timer3sHard.classList = ("play-page-style");
     easyGame.classList = ("play-page-style hidden-section");
-    hardGame.classList = ("play-page-style");
+    
+    
     countdown3s();
     
+    setTimeout(() => {
+        hardGame.classList = ("play-page-style");
+         //timeout 10 sec
+         setTimeout(() => {
+             congratulations.classList = ("play-page-style");
+             hardGame.classList = ("play-page-style hidden-section");
+             hiddenMessage.classList = ("congratulations-message");
+         }, 10000);
+     }, 3000);
     
 
     //save userScore
 
 }
+
+
+function showFinishPage() {
+    hardGame.classList = ("play-page-style");
+    congratulations.classList = ("play-page-style hidden-section");
+    hiddenMessage.classList = ("congratulations-message hidden-message")
+}
+
 
 function saveUserScore() {
     let userArray = [user]
@@ -93,10 +119,14 @@ function saveUserScore() {
 function countdown3s () {
 
     if (threeSec == 0){
-        timer3s.classList = (" play-page-style hidden-section");
+        timer3s.classList = ("play-page-style hidden-section");
+        timer3sHard.classList = ("play-page-style hidden-section");
+        threeSec = 3;
+        console.log(threeSec)
         return;
     } else {
         countdown3.textContent = threeSec;
+        countdownHard.textContent = threeSec;
         setTimeout(() => {
             threeSec--;
             countdown3s();
