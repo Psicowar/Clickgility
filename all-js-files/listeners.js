@@ -10,6 +10,7 @@ let threeSec = 3;
 let tenSec = 10;
 let userNameValue = "";
 
+
 // Hides initial page and shows games section
 
 
@@ -43,11 +44,13 @@ function startEasyGame() {
              congratulations.classList = ("play-page-style");
              clicksEasyGame.classList = ("play-page-style hidden-section");
              hiddenMessage.classList = ("congratulations-message");
+             easyGameScore.textContent += countClickEasy + " clicks!!";
          }, 10000);
      }, 3000);
-
+     
      //end easy mode
-}
+}   
+
 
 
 
@@ -64,7 +67,7 @@ function startHardGame() {
     countdown3s();
     
     setTimeout(() => {
-        hardGame.classList = ("play-page-style");
+        hardGame.classList = ("play-page-style start-button");
          //timeout 10 sec
          setTimeout(() => {
              congratulations.classList = ("play-page-style");
@@ -72,7 +75,7 @@ function startHardGame() {
              hiddenMessage.classList = ("congratulations-message");
              playSectionHard.classList = ("section-styles hidden-section");
              scoreButton.classList = ("score-button");
-             
+             finishPage.classList = ("section-styles");
          }, 10000);
      }, 3000);
     
@@ -83,13 +86,14 @@ function startHardGame() {
 
 function scoreDetails() {
     user = new userScore(userNameValue, countClickEasy, "");
-    finishPage.classList = ("section-styles");
 }
 
 
 function showInitialPage() {
     timer3sHard.classList = ("play-page-style hidden-section")
-}
+    initialPage.classList = (" section-styles");
+    finishPage.classList = ("section-styles hidden-section");
+}   
 
 function saveUserScore() {
     let userArray = [user]

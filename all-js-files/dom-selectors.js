@@ -21,5 +21,6 @@ const userNameBtn = document.querySelector(".user-name");
 const hiddenMessage = document.querySelector("#message-box");
 const scoreDetailsBtn = document.querySelector(".score-details");
 const scoreButton = document.querySelector(".score-button");
+const easyGameScore = document.querySelector("#easyGameScore");
 
 
