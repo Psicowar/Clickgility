@@ -7,23 +7,12 @@ let tenSec = 10;
 
 // Hides initial page and shows games section
 
-let user = new userScore();
 
 
 function showEasyPage() {
-    // initialPage.classList = ("hidden-section section-styles");
+    initialPage.classList = ("hidden-section section-styles");
     playSection.classList = ("section-styles");
-
-    // console.log("Nam e Button: " + userNameBtn.value)
-
     mainGameSection.classList = ("play-page-section");
-    //user = new UserScore(userNameBtn.value, "", "");
-    user.userName = userNameBtn.value;
-    user.clicksEasy = 5;
-    user.clicksHard = 51;
-
-    // console.log(user);
-    saveUserScore();
 }
 
 // shows 3s t   imer when clicking start and hides main-game-section
@@ -37,7 +26,7 @@ function startEasyGame() {
     
     //timeout 3 s
     setTimeout(() => {
-        // timer3s.classList = ("play-page-style hidden-section");
+        timer3s.classList = ("play-page-style hidden-section");
         easyGame.classList = ("play-page-style");
          //timeout 10 sec
          setTimeout(() => {
@@ -48,14 +37,14 @@ function startEasyGame() {
      }, 3000);
 
      //end easy mode
-     user.clicksEasy = 2;
 }
 
 function startHardGame() {
     easyGame.classList = ("play-page-style hidden-section");
     hardGame.classList = ("play-page-style");
-
-
+    countdown3s();
+    
+    
 
     //save userScore
 
