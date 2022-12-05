@@ -19,5 +19,7 @@ const congratulations = document.querySelector("#congratulations");
 const startBtn = document.querySelector(".start-button");
 const userNameBtn = document.querySelector(".user-name");
 const hiddenMessage = document.querySelector("#message-box");
+const scoreDetailsBtn = document.querySelector(".score-details");
+const scoreButton = document.querySelector(".score-button");
 
 

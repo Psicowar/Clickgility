@@ -3,6 +3,7 @@ startBtn.addEventListener("click", startEasyGame);
 hardGameBtn.addEventListener("click", startHardGame);
 finishBtn.addEventListener("click", showInitialPage);
 clicksEasyGame.addEventListener("click", clickEasy);
+scoreDetailsBtn.addEventListener("click", scoreDetails);
 
 
 let threeSec = 3;
@@ -29,7 +30,7 @@ function startEasyGame() {
     mainGameSectionEasy.classList = ("play-page-style hidden-section");
     timer3s.classList = ("play-page-style");
     userNameValue = userNameBtn.value;
-    
+
 
     countdown3s();
     
@@ -51,14 +52,14 @@ function startEasyGame() {
 
 
 function startHardGame() {
-    easyGame.classList = ("play-page-style hidden-section");
+    
+    clicksEasyGame.classList = ("play-page-style hidden-section");
     playSectionHard.classList = ("section-styles");
     congratulations.classList = ("play-page-style hidden-section");
     hiddenMessage.classList = ("congratulations-message hidden-message");
     timer3sHard.classList = ("play-page-style");
     playSectionEasy.classList = ("section-styles hidden-section");
     playSectionHard.classList = ("section-styles");
-    user = new userScore()
     
     countdown3s();
     
@@ -70,13 +71,19 @@ function startHardGame() {
              hardGame.classList = ("play-page-style hidden-section");
              hiddenMessage.classList = ("congratulations-message");
              playSectionHard.classList = ("section-styles hidden-section");
-             finishPage.classList = ("section-styles");
+             scoreButton.classList = ("score-button");
+             
          }, 10000);
      }, 3000);
     
 
     //save userScore
+}
 
+
+function scoreDetails() {
+    user = new userScore(userNameValue, countClickEasy, "");
+    finishPage.classList = ("section-styles");
 }
 
 
