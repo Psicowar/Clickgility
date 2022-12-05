@@ -148,12 +148,16 @@ footer {
     background-color: lightgreen;
 }
 
+
+
 .play-page-style{
     box-sizing: border-box;
     width: 200px;
     height: 100px;
     background: aqua;
 }
+
+
 
 .squad-name {
     display: block;
