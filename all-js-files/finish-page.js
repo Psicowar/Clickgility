@@ -3,7 +3,7 @@ function score(userName, numClicksEasy, numClicksHard) {
     this.numClicksEasy = numClicksEasy
     this.numClicksHard = numClicksHard
 };
-
+Pruebas
 
 
 
