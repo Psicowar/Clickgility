@@ -1,0 +1,127 @@
+@font-face {
+    font-family: typeBomb;
+    src: url(bomb.ttf);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body, html{
+	height: 100%;
+
+}
+
+
+
+.title-text {
+	display: flex;
+    font-family: typeBomb;
+    text-shadow: 5px 5px white;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	font-size: 5rem;
+}
+
+.head {
+    text-align: center;
+    background-color: #393e46;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+	height: 150px;
+}
+
+.logo-img {
+    height: 150px;
+	position: absolute;
+}
+
+/* .logo-img2 {
+    height: 150px;
+    width: 400px;
+} */
+
+.section-styles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    /* background-color: black; */
+}
+
+.user-name {
+	margin-bottom: 50px;
+    text-align: center;
+    width: 200px;
+    border-radius: 5px;
+    border-color: rgba(111, 111, 111, 0.447);
+}
+
+.initial-button {
+    width: 100px;
+    cursor: pointer;
+}
+
+
+#message-box {
+    background-color: lightcoral;
+    
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: aquamarine;
+    height: 5vh;
+}
+
+#easy-game {
+    border: 1px solid black;
+    background-color: lightgreen;
+}
+
+
+.play-page-style{
+    box-sizing: border-box;
+    width: 200px;
+    height: 100px;
+    background: aqua;
+}
+
+#hard-game {
+    background:lightcoral;
+}
+
+.squad-name {
+    display: block;
+}
+
+
+
+
+.hidden-section {
+	display: none;
+}
+
+.hidden-button {
+	display: none;
+}
+
+.hidden-game {
+	display: none;
+}
+
+.hidden-message {
+	display: none;
+}
+
+

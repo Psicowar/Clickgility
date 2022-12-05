@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clickgility</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="all-js-files/dom-selectors.js" defer></script>
+    <script src="all-js-files/easy-game.js" defer></script>
+    <script src="all-js-files/finish-page.js" defer></script>
+    <script src="all-js-files/hard-game.js" defer></script>
+    <script src="all-js-files/initial-page.js" defer></script>
+    <script src="all-js-files/listeners.js" defer></script>
+  </head>
+
+  <header>
+    <div class="head">
+      <img class="logo-img" src="logo1.png" alt="Image logo" />
+      <p class="title-text">Clickgility</p>
+    </div>
+  </header>
+
+  <body>
+
+    <section class="section-styles" id="initial-id-page">
+      <input class="user-name" placeholder="Write your UserName" type="text"/><br>
+      <button class="initial-button" id="">Play!</button>
+    </section>
+
+
+    <section class="section-styles hidden-section" id="games-section">
+
+      <div class="play-page-style hidden-section" id="main-game-section">
+        <p>Welcome! Let's see how many clicks you do in 10 seconds! Press Start</p>
+        <button class="start-button easy-button">Start</button>
+        <div></div>
+
+      </div>
+
+
+<!-- Contador 3 segundos -->
+      <div class="play-page-style hidden-section" id="timer-3s">
+      <p class="countdown-3"></p>  
+      </div>
+      
+      <div class="play-page-style hidden-game" id="easy-game">
+        <p class="hidden-message countdown">TIMER</p> 
+      
+        <!-- Timeout 10 sec -->
+      </div>
+
+<!-- guardar resultado numero clicks en localStorage -->
+
+      <div class="congratulations-message hidden-message" id = "message-box">
+        <p>
+        Congratulations!! You have unlocked the hard game. Click this button!
+        </p>
+      </div>
+      <div class="play-page-style hidden-section" id="congratulations">
+        <button class="start-button hard-button">Start Hard Game</button>
+        
+      </div>
+
+
+      <div class="play-page-style hidden-game" id="hard-game">
+        
+        <p class="hidden-message">TIMER</p>
+
+        <!-- Timeout 10 sec -->
+
+        <div class="hidden-section">
+          <p class="congratulations-message">Congratulations!!</p>
+        </div>
+      </div>
+      <!-- Timer 10 sec -->
+
+
+    </section>
+
+
+    <section class="section-styles hidden-section" id="finish-page">
+        <div>
+            <ul class="history-log">
+                <li class="data-user">Aqui va el nombre y el numero de clicks</li>
+                <li class="data-user">Aqui va el nombre y el numero de clicks</li>
+                <li class="data-user">Aqui va el nombre y el numero de clicks</li>
+                <li class="data-user">Aqui va el nombre y el numero de clicks</li>
+                <li class="data-user">Aqui va el nombre y el numero de clicks</li>
+            </ul>
+            <button class="go-to-initial" id="finish-button">Play again</button>
+            <!-- esto te lleva a la initial page -->
+        </div>
+    </section>
+
+  </body>
+  <footer>
+    <div class="squad-name">SQUAD LOVELACE</div>
+  </footer>
+</html>
