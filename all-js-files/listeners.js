@@ -1,7 +1,7 @@
 playBtn.addEventListener("click", showEasyPage)
 startBtn.addEventListener("click", startEasyGame)
-hardGame.addEventListener("click", startHardGame)
-hardGameBtn.addEventListener("click", showFinishPage)
+hardGameBtn.addEventListener("click", startHardGame)
+// .addEventListener("click", showFinishPage)
 
 
 let threeSec = 3;
@@ -13,8 +13,8 @@ let tenSec = 10;
 
 function showEasyPage() {
     initialPage.classList = ("hidden-section section-styles");
-    playSection.classList = ("section-styles");
-    mainGameSection.classList = ("play-page-section");
+    playSectionEasy.classList = ("section-styles");
+    mainGameSectionEasy.classList = ("play-page-section");
 }
 
 
@@ -24,7 +24,7 @@ function showEasyPage() {
 
 function startEasyGame() {
 
-    mainGameSection.classList = ("play-page-style hidden-section");
+    mainGameSectionEasy.classList = ("play-page-style hidden-section");
     timer3s.classList = ("play-page-style");
 
     countdown3s();
@@ -47,9 +47,13 @@ function startEasyGame() {
 
 
 function startHardGame() {
-    timer3sHard.classList = ("play-page-style");
     easyGame.classList = ("play-page-style hidden-section");
-    
+    playSectionHard.classList = ("section-styles");
+    congratulations.classList = ("play-page-style hidden-section");
+    hiddenMessage.classList = ("congratulations-message hidden-message");
+    timer3sHard.classList = ("play-page-style");
+    playSectionEasy.classList = ("section-styles hidden-section");
+    playSectionHard.classList = ("section-styles");
     
     countdown3s();
     
@@ -60,6 +64,7 @@ function startHardGame() {
              congratulations.classList = ("play-page-style");
              hardGame.classList = ("play-page-style hidden-section");
              hiddenMessage.classList = ("congratulations-message");
+             playSectionHard.classList = ("section-styles hidden-section");
          }, 10000);
      }, 3000);
     
@@ -70,9 +75,8 @@ function startHardGame() {
 
 
 function showFinishPage() {
-    hardGame.classList = ("play-page-style");
-    congratulations.classList = ("play-page-style hidden-section");
-    hiddenMessage.classList = ("congratulations-message hidden-message")
+  
+    
 }
 
 
@@ -122,6 +126,7 @@ function countdown3s () {
         timer3s.classList = ("play-page-style hidden-section");
         timer3sHard.classList = ("play-page-style hidden-section");
         threeSec = 3;
+        countdownHard.textContent = "";
         console.log(threeSec)
         return;
     } else {
