@@ -1,11 +1,13 @@
-playBtn.addEventListener("click", showEasyPage)
-startBtn.addEventListener("click", startEasyGame)
-hardGameBtn.addEventListener("click", startHardGame)
-// .addEventListener("click", showFinishPage)
+playBtn.addEventListener("click", showEasyPage);
+startBtn.addEventListener("click", startEasyGame);
+hardGameBtn.addEventListener("click", startHardGame);
+finishBtn.addEventListener("click", showInitialPage);
+clicksEasyGame.addEventListener("click", clickEasy);
 
 
 let threeSec = 3;
 let tenSec = 10;
+let userNameValue = "";
 
 // Hides initial page and shows games section
 
@@ -26,17 +28,19 @@ function startEasyGame() {
 
     mainGameSectionEasy.classList = ("play-page-style hidden-section");
     timer3s.classList = ("play-page-style");
+    userNameValue = userNameBtn.value;
+    
 
     countdown3s();
     
     //timeout 3 s
     setTimeout(() => {
         timer3s.classList = ("play-page-style hidden-section");
-        easyGame.classList = ("play-page-style");
+        clicksEasyGame.classList = ("play-page-style");
          //timeout 10 sec
          setTimeout(() => {
              congratulations.classList = ("play-page-style");
-             easyGame.classList = ("play-page-style hidden-section");
+             clicksEasyGame.classList = ("play-page-style hidden-section");
              hiddenMessage.classList = ("congratulations-message");
          }, 10000);
      }, 3000);
@@ -54,6 +58,7 @@ function startHardGame() {
     timer3sHard.classList = ("play-page-style");
     playSectionEasy.classList = ("section-styles hidden-section");
     playSectionHard.classList = ("section-styles");
+    user = new userScore()
     
     countdown3s();
     
@@ -65,6 +70,7 @@ function startHardGame() {
              hardGame.classList = ("play-page-style hidden-section");
              hiddenMessage.classList = ("congratulations-message");
              playSectionHard.classList = ("section-styles hidden-section");
+             finishPage.classList = ("section-styles");
          }, 10000);
      }, 3000);
     
@@ -74,11 +80,9 @@ function startHardGame() {
 }
 
 
-function showFinishPage() {
-  
-    
+function showInitialPage() {
+    timer3sHard.classList = ("play-page-style hidden-section")
 }
-
 
 function saveUserScore() {
     let userArray = [user]
@@ -142,4 +146,4 @@ function countdown3s () {
 
 // let user = new userScore (userNameBtn.value, clicksEasy, clicksHard)
 
-easyGame.addEventListener("click", countClickEasy);
+
