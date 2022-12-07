@@ -95,7 +95,7 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 100%;
     text-align: center;
     background-color: #393e46;
 }
