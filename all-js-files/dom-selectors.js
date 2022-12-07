@@ -16,7 +16,7 @@ const countdownHard = document.querySelector(".countdown-hard")
 const mainGameSectionEasy = document.querySelector("#main-game-section-easy");
 const clicksEasyGame = document.querySelector("#easy-game");
 const goToHardPage = document.querySelector("#hard-page-bttn");
-const startBtn = document.querySelector(".style-button");
+const startBtn = document.querySelector(".easy-button");
 const userNameBtn = document.querySelector(".user-name");
 const easyHiddenMessage = document.querySelector("#message-box-easy");
 const hardHiddenMessage = document.querySelector("#message-box-hard");
@@ -28,4 +28,5 @@ const hardGameScore = document.querySelector("#hardGameScore");
 const goToFinishPage = document.querySelector(".go-finish-page");
 const finalUserScore = document.querySelector("#user-Score");
 const randomMoveBttn = document.querySelector("p.random-move");
+const clickArea = document.querySelector(".clickon");
 

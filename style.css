@@ -3,6 +3,8 @@
     src: url(bomb.ttf);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
@@ -12,55 +14,6 @@ body, html{
 	height: 100vh;
 }
 
-.title-text {
-	display: flex;
-    font-family: typeBomb;
-    text-shadow: 5px 5px rgb(15, 160, 170);
-	text-align: center;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	font-size: 5rem;
-    margin-top: 30px;
-    user-select: none;
-    cursor: default;
-}
-
-p {
-    font-size: 25px;
-    margin-bottom: 50px;
-    color: white;
-    cursor: pointer;
-    user-select: none;
-}
-
-.clickon {
-    
-    width: 400px;
-    height: 200px;
-    border: 2px solid white;
-    border-radius: 3px;
-}
-
-#easy-game, #hard-game {
-    display: flex;
-    width: 800px;
-    height: 400px;
-    justify-content: center;
-    text-align: center;
-}
-
-#effect {
-	display: inline-block;
-	animation: latidos 3s infinite;
-	transform-origin: center;
-}
-
-@keyframes latidos {
-    from { transform: none; }
-    50% { transform: scale(1.4); }
-    to { transform: none; }
-}
 
 .head {
     text-align: center;
@@ -73,40 +26,113 @@ p {
 }
 
 
+.title-text {
+    text-shadow: 5px 5px 5px rgb(15, 160, 170);
+    font-family: typeBomb;
+	text-align: center;
+    align-self: center;
+	width: 86%;
+	font-size: 4.5rem;
+    user-select: none;
+    cursor: default;
+}
+
+h1, h3, p{
+    align-self: center;
+    font-size: 2.2rem;
+    margin: 20px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+.play-page-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p.clickon {
+    border-radius: 20px;
+}
+
+.clickon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+    height: 10vh;
+    border: 2px solid white;
+    border-radius: 3px;
+}
+
+.clickon:hover {
+    transform: scale(1.2);
+}
+
+
+.clickon:active {
+    transform: scale(1.0);
+    box-shadow: 5px 5px 5px 5px rgb(15, 160, 170);
+}
+
+
+
+#easy-game, #hard-game {
+    justify-content: center;
+    text-align: center;
+}
+
+#effect {
+	animation: latidos 3s infinite;
+	transform-origin: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes latidos {
+    from { transform: none; }
+    50% { transform: scale(1.4); }
+    to { transform: none; }
+}
+
+
+
 #initial-id-page {
     background-image: url(click.png);
 }
 
 .logo-img {
-    height: 150px;
-	position: absolute;
+    height: 10rem;
     user-select: none;
 }
 
 .logo-img2 {
-    height: 150px;
-	position: absolute;
+    height: 10rem;
     user-select: none;
-    margin-left: 45vw;
 }
 
 .section-styles {
+    font-family: Roboto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    border: 1px solid lightseagreen;
+    height: 100vh;
     text-align: center;
     background-color: #393e46;
+
+    
 }
 
 .user-name {
-	margin-bottom: 50px;
+	margin-bottom: 2vh;
     text-align: center;
     font-family: fantasy;
-    width: 200px;
-    height: 30px;
-    border-radius: 15px;
+    font-size: 2vh;
+    border-radius: 5px;
     cursor: pointer;
     user-select: none;
 }
@@ -115,27 +141,34 @@ p {
     background-color: #393e46;
 }
 
+.random-move {
+    position: absolute;
+    
+}
+
 .squad-name {
-    display: absolute;
     text-align: center;
+    width: 88%;
+    align-self: center;
     background-color: #393e46;
     font-family: typeBomb;
-    font-size: 70px;
-    text-shadow: 5px 5px rgb(15, 160, 170);
+    font-size: 50px;
+    text-shadow: 5px 5px 5px rgb(15, 160, 170);
     user-select: none;
+    margin: 0;
 }
 
-footer {
+.footer-style {    
     display: flex;
-    align-items: center;
+    justify-content: right;
+    align-items: right;
+    text-align: center;
+    color:white;
     background-color: #393e46;
-    justify-content: center;
 	height: 150px;
+    overflow: hidden;
 }
 
-.squad-name {
-    display: block;
-}
 
 .hidden-section {
 	display: none;
@@ -154,7 +187,7 @@ footer {
 }
 
 
-#finish-button:hover {
+.initial-button:hover, #finish-button:hover {
     transform: scale(1.2);
 }
 
@@ -166,30 +199,35 @@ footer {
     transform: scale(1.2);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.button, .easy-button, .hard-button, #finish-button {
+
+.button, .easy-button, .hard-button, .go-finish-page, #finish-button {
   position: relative;
   overflow: hidden;
+  align-self: center;
   transition: background 400ms;
   color: #fff;
   background-color: #6200ee;
-  padding: 1rem 2rem;
   font-family: 'Roboto', sans-serif;
-  font-size: 1.5rem;
+  margin: 2rem;
+  height: 2.5vh;
+  width: 10vw;
+  font-size: 2vh;
   outline: 0;
   border: 0;
-  border-radius: 0.25rem;
+  border-radius:5px;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
   cursor: pointer;
   user-select: none;
 }
+
+
  
 #finish-button {
     margin-top: 50px;
  }
 span.ripple {
-    position: absolute; /* The absolute position we mentioned earlier */
+    position: absolute;
     border-radius: 50%;
     transform: scale(0);
     animation: ripple 600ms linear;

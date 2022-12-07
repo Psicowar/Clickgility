@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clickgility</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="all-js-files/dom-selectors.js" defer></script>
     <script src="all-js-files/easy-game.js" defer></script>
     <script src="all-js-files/finish-page.js" defer></script>
@@ -14,30 +17,28 @@
     <script src="all-js-files/listeners.js" defer></script>
   </head>
 
-  <header>
-    <div class="head">
-      <img class="logo-img" src="logo1.png" alt="Image logo" />
-      <p class="title-text" id="effect">Clickgility</p>
-    </div>
-  </header>
+
 
   <body>
+    <header>
+      <div class="head">
+        <img class="logo-img" src="logo1.png" alt="Image logo" />
+        <h1 class="title-text" id="effect">Clickgility</h1>
+      </div>
+    </header>
 
     <section class="section-styles" id="initial-id-page">
       <input class="user-name" placeholder="Write your UserName" type="text"/><br>
       <div class="button initial-button">
         Let's Play!
-        <div></div>
       </div>
     </section>
-
 
     <section class="section-styles hidden-section" id="games-section-easy">
 
       <div class="play-page-style hidden-section" id="main-game-section-easy">
         <p>Welcome! Let's see how many clicks you do in 10 seconds! Press Start</p>
-        <button class="style-button easy-button">Start Easy Game</button>
-
+        <button class="easy-button">Start Easy Game</button>
       </div>
 
 
@@ -48,9 +49,9 @@
       </div>
 
       <!-- Timeout 10 sec -->
-      <div class="play-page-style hidden-game style-button" id="easy-game">
+      <div class="play-page-style hidden-game" id="easy-game">
         <p class="hidden-message countdown">TIMER</p> 
-        <p class="clickon">CLICK ON ME</p>
+        <p class="hidden-button clickon">CLICK ON ME</p>
       </div>
 
 <!-- guardar resultado numero clicks en localStorage -->
@@ -63,14 +64,8 @@
         
       </div>
       <div class="play-page-style hidden-button" id="hard-page-bttn">
-        <button class="style-button hard-button">Start Hard Game</button>
-        
+        <button class="hard-button">Start Hard Game</button>  
       </div>
-
-
-      
-
-      
 
     </section>
      
@@ -115,11 +110,15 @@
         </div>
     </section>
 
+    <footer>
+      <div class="footer-style">
+          <h3 class="squad-name">SQUAD LOVELACE</h3>
+          <img class="logo-img2" src="logo1.png" alt="Image logo"/>
+      </div> 
+      
+    </footer>
   </body>
 
-  <footer>
-    <h3 class="squad-name">SQUAD LOVELACE</h3>
-    <img class="logo-img2" src="logo1.png" alt="Image logo" />
-  </footer>
+
 
 </html>

@@ -30,25 +30,24 @@ function showEasyPage() {
 // shows 3s t   imer when clicking start and hides main-game-section
 
 function startEasyGame() {
-
     mainGameSectionEasy.classList = ("play-page-style hidden-section");
     timer3s.classList = ("play-page-style");
     userNameValue = userNameBtn.value;
-
-
     countdown3s();
     
     //timeout 3 s
     setTimeout(() => {
         timer3s.classList = ("play-page-style hidden-section");
-        clicksEasyGame.classList = ("play-page-style style-button");
+        clicksEasyGame.classList = ("play-page-style");
+        clickArea.classList = ("clickon");
          //timeout 10 sec
          setTimeout(() => {
             goToHardPage.classList = ("play-page-style");
             clicksEasyGame.classList = ("play-page-style hidden-section");
             easyHiddenMessage.classList = ("congratulations-message");
             easyGameScore.textContent += countClickEasy + " clicks!!";
-            hardGameBtn.classList = ("style-button hard-button");
+            hardGameBtn.classList = ("hard-button");
+            clickArea.classList = ("hidden-button clickon");
          }, 10000);
      }, 3000);
      
@@ -57,15 +56,15 @@ function startEasyGame() {
 
 
 function randomMove() {
-    let positionX = Math.floor(Math.random()*500)+1;
-    let positionY = Math.floor(Math.random()*500)+1;
-    randomMoveBttn.style.left = positionX + "px";
-    randomMoveBttn.style.top = positionY + "px";
+    let positionTop = Math.floor(Math.random()*1000)+1;
+    let positionLeft = Math.floor(Math.random()*1000)+1;
+    randomMoveBttn.style.left = positionTop - 150 + "px"; 
+    randomMoveBttn.style.top = positionLeft + "px";
+    
 }
 
 
 function startHardGame() {
-    
     clicksEasyGame.classList = ("play-page-style hidden-section");
     playSectionHard.classList = ("section-styles");
     goToHardPage.classList = ("play-page-style hidden-section");
@@ -73,12 +72,12 @@ function startHardGame() {
     timer3sHard.classList = ("play-page-style");
     playSectionEasy.classList = ("section-styles hidden-section");
     playSectionHard.classList = ("section-styles");
-    
+    clickArea.classList = ("clickon");
     countdown3s();
 
     
     setTimeout(() => {
-        clickHardGame.classList = ("play-page-style style-button");
+        clickHardGame.classList = ("play-page-style");
          //timeout 10 sec
         setTimeout(() => {
             goToHardPage.classList = ("play-page-style");
@@ -87,7 +86,9 @@ function startHardGame() {
             hardHiddenMessage.classList = ("congratulations-message");
             hardGameScore.textContent += countClickHard + " clicks!!";
             scoreSection.classList = ("play-page-style");
-            goToFinishPage.classList = ("style-button go-finish-page ");
+            goToFinishPage.classList = ("go-finish-page ");
+            clickArea.classList = ("hidden-button clickon");
+            randomMoveBttn.style = "";
 ;         }, 10000);
      }, 3000);
     
@@ -97,7 +98,7 @@ function startHardGame() {
 
 function showFinishPage() {
     hardHiddenMessage.classList = ("congratulations-message hidden-message");
-    finishBtn.classList = ("style-button go-to-initial");
+    finishBtn.classList = ("go-to-initial");
     playSectionHard.classList = ("section-styles hidden-section");
     scoreSection.classList = ("play-page-style hidden-button");
     finishPage.classList = ("section-styles");
@@ -116,7 +117,7 @@ function showInitialPage() {
     initialPage.classList = ("section-styles");
     finishPage.classList = ("section-styles hidden-section");
     userNameBtn.value = "";
-    hardGameBtn.classList = ("style-button hidden-button");
+    hardGameBtn.classList = ("hidden-button");
     easyHiddenMessage.classList = ("congratulations-message hidden-message")
     countClickEasy = 0;
     easyGameScore.textContent = ("Your score is: ");
@@ -171,7 +172,6 @@ function countdown3s () {
         timer3sHard.classList = ("play-page-style hidden-section");
         threeSec = 3;
         countdownHard.textContent = "";
-        console.log(threeSec)
         return;
     } else {
         countdown3.textContent = threeSec;
