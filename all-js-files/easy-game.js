@@ -10,5 +10,5 @@ let countClickEasy = 0;
 
 function clickEasy() {
     countClickEasy++
-    console.log(countClickEasy)
+
 }

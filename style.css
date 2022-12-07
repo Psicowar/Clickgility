@@ -166,7 +166,7 @@ footer {
 	display: none;
 }
 
-.start-button {
+.style-button {
     position: relative;
     overflow: hidden;
     width: 250px;
@@ -175,7 +175,7 @@ footer {
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.start-button {
+.style-button {
   position: relative;
   overflow: hidden;
   transition: background 400ms;
