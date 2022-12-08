@@ -12,6 +12,7 @@
 
 body, html{
 	height: 100vh;
+
 }
 
 
@@ -143,7 +144,10 @@ p.clickon {
 
 .random-move {
     position: absolute;
-    
+    display: block;
+    transition: 0.5s transform;
+    top: 0;  
+
 }
 
 .squad-name {

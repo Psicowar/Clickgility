@@ -56,12 +56,14 @@ function startEasyGame() {
 
 
 function randomMove() {
-    let positionTop = Math.floor(Math.random()*1000)+1;
-    let positionLeft = Math.floor(Math.random()*1000)+1;
-    randomMoveBttn.style.left = positionTop - 150 + "px"; 
-    randomMoveBttn.style.top = positionLeft + "px";
-    
+    const height = document.documentElement.clientHeight;
+    const width = document.documentElement.clientWidth;
+    const positionTop = Math.floor((Math.random() * height) + 1);
+    const positionLeft = Math.floor((Math.random() * width) + 1);
+    randomMoveBttn.style.transform = `translate(${positionLeft}px, ${positionTop}px)`;
+    console.log(positionLeft, positionTop);
 }
+
 
 
 function startHardGame() {
