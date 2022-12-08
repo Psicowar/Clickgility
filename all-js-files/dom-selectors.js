@@ -20,7 +20,6 @@ const startBtn = document.querySelector(".easy-button");
 const userNameBtn = document.querySelector(".user-name");
 const easyHiddenMessage = document.querySelector("#message-box-easy");
 const hardHiddenMessage = document.querySelector("#message-box-hard");
-// const scoreDetailsBtn = document.querySelector(".score-details");
 const scoreButton = document.querySelector(".score-button");
 const scoreSection = document.querySelector("#finish-page-bttn");
 const easyGameScore = document.querySelector("#easyGameScore");
@@ -29,4 +28,31 @@ const goToFinishPage = document.querySelector(".go-finish-page");
 const finalUserScore = document.querySelector("#user-Score");
 const randomMoveBttn = document.querySelector("p.random-move");
 const clickArea = document.querySelector(".clickon");
+
+const firstNameEasy = document.querySelector("#first-easy-name");
+const secondNameEasy = document.querySelector("#second-easy-name");
+const thirdNameEasy = document.querySelector("#third-easy-name");
+const fourthNameEasy = document.querySelector("#fourth-easy-name");
+const fifthNameEasy = document.querySelector("#fifth-easy-name");
+
+
+const firstScoreEasy = document.querySelector("#first-easy-clicks");
+const secondScoreEasy = document.querySelector("#second-easy-clicks");
+const thirdScoreEasy = document.querySelector("#third-easy-clicks");
+const fourthScoreEasy = document.querySelector("#fourth-easy-clicks");
+const fifthScoreEasy = document.querySelector("#fifth-easy-clicks");
+
+
+
+const firstNameHard = document.querySelector("#first-hard-name");
+const secondNameHard = document.querySelector("#second-hard-name");
+const thirdNameHard = document.querySelector("#third-hard-name");
+const fourthNameHard = document.querySelector("#fourth-hard-name");
+const fifthNameHard = document.querySelector("#fifth-hard-name");
+
+const firstScoreHard = document.querySelector("#first-hard-clicks");
+const secondScoreHard = document.querySelector("#second-hard-clicks");
+const thirdScoreHard = document.querySelector("#third-hard-clicks");
+const fourthScoreHard = document.querySelector("#fourth-hard-clicks");
+const fifthScoreHard = document.querySelector("#fifth-hard-clicks");
 

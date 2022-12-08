@@ -4,28 +4,23 @@ hardGameBtn.addEventListener("click", startHardGame);
 finishBtn.addEventListener("click", showInitialPage);
 clicksEasyGame.addEventListener("click", clickEasy);
 clickHardGame.addEventListener("click", clickHard);
-// scoreDetailsBtn.addEventListener("click", scoreDetails);
 goToFinishPage.addEventListener("click", showFinishPage)
 randomMoveBttn.addEventListener("click", randomMove)
-
 
 let threeSec = 3;
 let tenSec = 10;
 let userNameValue = "";
 
-
-// Hides initial page and shows games section
-
-
+let user;
+console.log(JSON.parse(localStorage.getItem("users")))
+let userArray = (JSON.parse(localStorage.getItem("users")) === null)? []:JSON.parse(localStorage.getItem("users"));
+console.log(userArray);
 
 function showEasyPage() {
     initialPage.classList = ("hidden-section section-styles");
     playSectionEasy.classList = ("section-styles");
     mainGameSectionEasy.classList = ("play-page-section");
 }
-
-
-
 
 // shows 3s t   imer when clicking start and hides main-game-section
 
@@ -54,15 +49,21 @@ function startEasyGame() {
      //end easy mode
 }   
 
-
 function randomMove() {
-    let positionTop = Math.floor(Math.random()*1000)+1;
-    let positionLeft = Math.floor(Math.random()*1000)+1;
-    randomMoveBttn.style.left = positionTop - 150 + "px"; 
-    randomMoveBttn.style.top = positionLeft + "px";
-    
-}
+    let positionTop = Math.floor(Math.random()*500)+1;
+    let positionLeft = Math.floor(Math.random()*500)+1;
+    if (positionLeft < 0){
+        positionLeft *= -1;
+    } else if (positionLeft >0 && positionLeft<50){
+        positionLeft += 50;
+    }
 
+    if (positionTop < 150){
+        positionTop += 150;
+    }
+    randomMoveBttn.style.left = positionTop + "px"; 
+    randomMoveBttn.style.top = positionLeft + "px";   
+}
 
 function startHardGame() {
     clicksEasyGame.classList = ("play-page-style hidden-section");
@@ -74,7 +75,6 @@ function startHardGame() {
     playSectionHard.classList = ("section-styles");
     clickArea.classList = ("clickon");
     countdown3s();
-
     
     setTimeout(() => {
         clickHardGame.classList = ("play-page-style");
@@ -89,11 +89,9 @@ function startHardGame() {
             goToFinishPage.classList = ("go-finish-page ");
             clickArea.classList = ("hidden-button clickon");
             randomMoveBttn.style = "";
-;         }, 10000);
-     }, 3000);
-    
 
-    //save userScore
+        }, 10000);
+     }, 3000);
 }
 
 function showFinishPage() {
@@ -103,14 +101,10 @@ function showFinishPage() {
     scoreSection.classList = ("play-page-style hidden-button");
     finishPage.classList = ("section-styles");
     finalUserScore.textContent = (`${userNameValue}, EASY Game: ${countClickEasy} clicks, HARD Game: ${countClickHard} clicks`);
-    
-}
-
-
-function scoreDetails() {
     user = new userScore(userNameValue, countClickEasy, countClickHard);
+    userArray.push(user);
+    saveUserScore();
 }
-
 
 function showInitialPage() {
     timer3sHard.classList = ("play-page-style hidden-section");
@@ -123,47 +117,181 @@ function showInitialPage() {
     easyGameScore.textContent = ("Your score is: ");
     countClickHard = 0;
     hardGameScore.textContent = ("Your score is: ");
-}   
-
-function saveUserScore() {
-    let userArray = [user]
-    let userArrayJson = JSON.stringify(userArray);
-    // console.log("SAVE USER SCORE: "+ userJson);
-
-    let scores = localStorage.getItem("scores")== null?userArray:JSON.parse(localStorage.getItem("scores"));  
-    console.log("LOCAL STORAGE SCORES: "+localStorage.getItem("scores"))
-
-    console.log("SCORES: " + scores);
-    scores.push(user);
-    console.log("SCORES after push: " + scores);
-    localStorage.setItem("scores",scores);
-
-    // let maxClicks=0;
-    // for (let a in localStorage) {
-    //     if (typeof(localStorage[a]) === "string"){
-    //         console.log(JSON.parse(localStorage[a]));
-    //         console.log(a, ' = ', localStorage[a]);
-    //     }
-    //  }
+    updateLog();
 } 
 
-// "scores": [
-//     {
-//         username: adkjfnaod
-//         clicksEasy: 23
-//         clicksHard: 42
-//     }]
-//     {
-//         username: adkjfnaod
-//         clicksEasy: 23
-//         clicksHard: 42
-//     },
-//     {
-//         username: adkjfnaod
-//         clicksEasy: 23
-//         clicksHard: 42
-//     }
-// ]
+function saveUserScore() {
+    let userArrayJson = JSON.stringify(userArray);
+    localStorage.setItem("users", userArrayJson);    
+} 
+
+let userLog = JSON.parse(localStorage.getItem("users"))===null?[]:JSON.parse(localStorage.getItem("users"));
+    
+let easyClickArraySorted = [...userLog].sort((a, b) => (b.clicksEasy - a.clicksEasy));
+console.log(easyClickArraySorted)
+
+console.log(easyClickArraySorted.length)
+
+let hardClickArraySorted = [...userLog].sort((a, b) => (b.clicksHard - a.clicksHard));
+console.log(hardClickArraySorted)
+
+if (easyClickArraySorted.length === 1){
+
+    firstNameEasy.textContent = easyClickArraySorted[0].userName;
+    firstScoreEasy.textContent = easyClickArraySorted[0].clicksEasy;
+
+    firstNameHard.textContent = hardClickArraySorted[0].userName;
+    firstScoreHard.textContent = hardClickArraySorted[0].clicksHard;
+
+} else if(easyClickArraySorted.length === 2){
+
+    firstNameEasy.textContent = easyClickArraySorted[0].userName;
+    secondNameEasy.textContent = easyClickArraySorted[1].userName;
+
+    firstScoreEasy.textContent = easyClickArraySorted[0].clicksEasy;
+    secondScoreEasy.textContent = easyClickArraySorted[1].clicksEasy;
+
+       
+    firstNameHard.textContent = hardClickArraySorted[0].userName;
+    secondNameHard.textContent = hardClickArraySorted[1].userName;
+
+    firstScoreHard.textContent = hardClickArraySorted[0].clicksHard;
+    secondScoreHard.textContent = hardClickArraySorted[1].clicksHard;
+
+} else if (easyClickArraySorted.length === 3){
+
+    firstNameEasy.textContent = easyClickArraySorted[0].userName;
+    secondNameEasy.textContent = easyClickArraySorted[1].userName;
+    thirdNameEasy.textContent = easyClickArraySorted[2].userName;
+    
+    firstScoreEasy.textContent = easyClickArraySorted[0].clicksEasy;
+    secondScoreEasy.textContent = easyClickArraySorted[1].clicksEasy;
+    thirdScoreEasy.textContent = easyClickArraySorted[2].clicksEasy;
+    
+            
+    firstNameHard.textContent = hardClickArraySorted[0].userName;
+    secondNameHard.textContent = hardClickArraySorted[1].userName;
+    thirdNameHard.textContent = hardClickArraySorted[2].userName;
+    
+    firstScoreHard.textContent = hardClickArraySorted[0].clicksHard;
+    secondScoreHard.textContent = hardClickArraySorted[1].clicksHard;
+    thirdScoreHard.textContent = hardClickArraySorted[2].clicksHard;
+
+} else if (easyClickArraySorted.length === 4){
+
+    firstNameEasy.textContent = easyClickArraySorted[0].userName;
+    secondNameEasy.textContent = easyClickArraySorted[1].userName;
+    thirdNameEasy.textContent = easyClickArraySorted[2].userName;
+    fourthNameEasy.textContent = easyClickArraySorted[3].userName;
+
+    
+    firstScoreEasy.textContent = easyClickArraySorted[0].clicksEasy;
+    secondScoreEasy.textContent = easyClickArraySorted[1].clicksEasy;
+    thirdScoreEasy.textContent = easyClickArraySorted[2].clicksEasy;
+    fourthScoreEasy.textContent = easyClickArraySorted[3].clicksEasy;
+    
+            
+    firstNameHard.textContent = hardClickArraySorted[0].userName;
+    secondNameHard.textContent = hardClickArraySorted[1].userName;
+    thirdNameHard.textContent = hardClickArraySorted[2].userName;
+    fourthNameHard.textContent = hardClickArraySorted[3].userName;
+    
+    firstScoreHard.textContent = hardClickArraySorted[0].clicksHard;
+    secondScoreHard.textContent = hardClickArraySorted[1].clicksHard;
+    thirdScoreHard.textContent = hardClickArraySorted[2].clicksHard;
+    fourthScoreHard.textContent = hardClickArraySorted[3].clicksHard;
+
+} else if (easyClickArraySorted > 4){
+    
+    firstNameEasy.textContent = easyClickArraySorted[0].userName;
+    secondNameEasy.textContent = easyClickArraySorted[1].userName;
+    thirdNameEasy.textContent = easyClickArraySorted[2].userName;
+    fourthNameEasy.textContent = easyClickArraySorted[3].userName;
+    fifthNameEasy.textContent = easyClickArraySorted[4].userName;
+
+    
+    firstScoreEasy.textContent = easyClickArraySorted[0].clicksEasy;
+    secondScoreEasy.textContent = easyClickArraySorted[1].clicksEasy;
+    thirdScoreEasy.textContent = easyClickArraySorted[2].clicksEasy;
+    fourthScoreEasy.textContent = easyClickArraySorted[3].clicksEasy;
+    fiftbScoreEasy.textContent = easyClickArraySorted[4].clicksEasy;
+    
+            
+    firstNameHard.textContent = hardClickArraySorted[0].userName;
+    secondNameHard.textContent = hardClickArraySorted[1].userName;
+    thirdNameHard.textContent = hardClickArraySorted[2].userName;
+    fourthNameHard.textContent = hardClickArraySorted[3].userName;
+    fifthNameHard.textContent = hardClickArraySorted[4].userName;
+    
+    firstScoreHard.textContent = hardClickArraySorted[0].clicksHard;
+    secondScoreHard.textContent = hardClickArraySorted[1].clicksHard;
+    thirdScoreHard.textContent = hardClickArraySorted[2].clicksHard;
+    fourthScoreHard.textContent = hardClickArraySorted[3].clicksHard;
+    fifthScoreHard.textContent = hardClickArraySorted[4].clicksHard;
+}
+
+
+function updateLog(){
+    
+    let userLog = JSON.parse(localStorage.getItem("users"));
+    
+    let easyClickArraySorted = [...userLog].sort((a, b) => (b.clicksEasy - a.clicksEasy));
+    console.log(easyClickArraySorted)
+
+    console.log(easyClickArraySorted.length)
+    
+    let hardClickArraySorted = [...userLog].sort((a, b) => (b.clicksHard - a.clicksHard));
+    console.log(hardClickArraySorted)
+    
+    if (easyClickArraySorted.length === 1){
+
+        firstNameEasy.textContent = easyClickArraySorted[0].userName;
+        firstScoreEasy.textContent = easyClickArraySorted[0].clicksEasy;
+
+        firstNameHard.textContent = hardClickArraySorted[0].userName;
+        firstScoreHard.textContent = hardClickArraySorted[0].clicksHard;
+
+    } else if(easyClickArraySorted.length === 2){
+
+        firstNameEasy.textContent = easyClickArraySorted[0].userName;
+        secondNameEasy.textContent = easyClickArraySorted[1].userName;
+
+        firstScoreEasy.textContent = easyClickArraySorted[0].clicksEasy;
+        secondScoreEasy.textContent = easyClickArraySorted[1].clicksEasy;
+
+           
+        firstNameHard.textContent = hardClickArraySorted[0].userName;
+        secondNameHard.textContent = hardClickArraySorted[1].userName;
+
+        firstScoreHard.textContent = hardClickArraySorted[0].clicksHard;
+        secondScoreHard.textContent = hardClickArraySorted[1].clicksHard;
+
+    } else if (easyClickArraySorted.length > 2){
+
+        firstNameEasy.textContent = easyClickArraySorted[0].userName;
+        secondNameEasy.textContent = easyClickArraySorted[1].userName;
+        thirdNameEasy.textContent = easyClickArraySorted[2].userName;
+        
+        firstScoreEasy.textContent = easyClickArraySorted[0].clicksEasy;
+        secondScoreEasy.textContent = easyClickArraySorted[1].clicksEasy;
+        thirdScoreEasy.textContent = easyClickArraySorted[2].clicksEasy;
+        
+                
+        firstNameHard.textContent = hardClickArraySorted[0].userName;
+        secondNameHard.textContent = hardClickArraySorted[1].userName;
+        thirdNameHard.textContent = hardClickArraySorted[2].userName;
+        
+        firstScoreHard.textContent = hardClickArraySorted[0].clicksHard;
+        secondScoreHard.textContent = hardClickArraySorted[1].clicksHard;
+        thirdScoreHard.textContent = hardClickArraySorted[2].clicksHard;
+    }
+    
+}  
+
+
+
+
+
 
 function countdown3s () {
 
@@ -183,7 +311,5 @@ function countdown3s () {
     }
 
 }
-
-// let user = new userScore (userNameBtn.value, clicksEasy, clicksHard)
 
 

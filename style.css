@@ -240,3 +240,22 @@ span.ripple {
       opacity: 0;
     }
   }
+
+  table {
+    border: solid 3px black;
+    width: 75%;
+    margin-bottom: 5px;
+    background: #fff;
+  }
+
+  table th {
+    font-size: 2rem;
+    font-weight: bold;
+    border: solid 2px black;
+    
+  }
+
+  td {
+    font-size: 1.5rem;
+    border-bottom: 2px dotted violet;
+  }
