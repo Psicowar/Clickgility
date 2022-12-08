@@ -65,10 +65,10 @@ function startEasyGame() {
 function randomMove() {
     const height = document.documentElement.clientHeight;
     const width = document.documentElement.clientWidth;
-    let positionTop = Math.floor((Math.random() * height/1.5) -400);
-    let positionLeft = Math.floor((Math.random() * width/1.5) -400);
-    randomMoveBttn.style.transform = `translate(${positionLeft}px, ${positionTop}px)`;
-    console.log(positionLeft, positionTop);
+    let positionY = Math.floor((Math.random() * height/2) -350);
+    let positionX = Math.floor((Math.random() * width/2) -800);
+    randomMoveBttn.style.transform = `translate(${positionX}px, ${positionY}px)`;
+    console.log(positionX, positionY);
     
     // let positionTop = Math.floor(Math.random()*500)+200;
     // let positionLeft = Math.floor(Math.random()*500)+200;
@@ -223,7 +223,7 @@ if (easyClickArraySorted.length === 1){
     thirdScoreHard.textContent = hardClickArraySorted[2].clicksHard;
     fourthScoreHard.textContent = hardClickArraySorted[3].clicksHard;
 
-} else if (easyClickArraySorted > 4){
+} else if (easyClickArraySorted.length > 4){
     
     firstNameEasy.textContent = easyClickArraySorted[0].userName;
     secondNameEasy.textContent = easyClickArraySorted[1].userName;
@@ -236,7 +236,7 @@ if (easyClickArraySorted.length === 1){
     secondScoreEasy.textContent = easyClickArraySorted[1].clicksEasy;
     thirdScoreEasy.textContent = easyClickArraySorted[2].clicksEasy;
     fourthScoreEasy.textContent = easyClickArraySorted[3].clicksEasy;
-    fiftbScoreEasy.textContent = easyClickArraySorted[4].clicksEasy;
+    fifthScoreEasy.textContent = easyClickArraySorted[4].clicksEasy;
     
             
     firstNameHard.textContent = hardClickArraySorted[0].userName;
@@ -331,7 +331,7 @@ function updateLog(){
         thirdScoreHard.textContent = hardClickArraySorted[2].clicksHard;
         fourthScoreHard.textContent = hardClickArraySorted[3].clicksHard;
     
-    } else if (easyClickArraySorted > 4){
+    } else if (easyClickArraySorted.length > 4){
         
         firstNameEasy.textContent = easyClickArraySorted[0].userName;
         secondNameEasy.textContent = easyClickArraySorted[1].userName;
@@ -344,7 +344,7 @@ function updateLog(){
         secondScoreEasy.textContent = easyClickArraySorted[1].clicksEasy;
         thirdScoreEasy.textContent = easyClickArraySorted[2].clicksEasy;
         fourthScoreEasy.textContent = easyClickArraySorted[3].clicksEasy;
-        fiftbScoreEasy.textContent = easyClickArraySorted[4].clicksEasy;
+        fifthScoreEasy.textContent = easyClickArraySorted[4].clicksEasy;
         
                 
         firstNameHard.textContent = hardClickArraySorted[0].userName;

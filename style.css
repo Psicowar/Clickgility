@@ -43,8 +43,17 @@ h1, h3, p{
     font-size: 2.2rem;
     margin: 20px;
     color: white;
-    cursor: pointer;
     user-select: none;
+}
+
+p {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(15, 160, 170, 0.3);
+}
+
+.styled-result {
+    display: inline-block;
 }
 
 .play-page-style {
@@ -66,6 +75,7 @@ h1, h3, p{
     border-radius: 3px;
     font-size: 2.2rem;
     border-radius: 20px;
+    cursor: pointer;
     color: white;
 }
 
@@ -106,6 +116,13 @@ h1, h3, p{
     background-image: url(click.png);
 }
 
+.log {
+    border-radius: 5px;
+    background-color: #393e46;
+    color: white;
+
+}
+
 .logo-img {
     height: 10rem;
     user-select: none;
@@ -122,7 +139,6 @@ h1, h3, p{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid lightseagreen;
     height: 100vh;
     text-align: center;
     background-color: #393e46;
@@ -130,8 +146,10 @@ h1, h3, p{
     
 }
 
+
+
 .user-name {
-	margin-bottom: 2vh;
+	margin: 2vh;
     text-align: center;
     font-family: fantasy;
     font-size: 2vh;
@@ -194,30 +212,31 @@ h1, h3, p{
 
 .initial-button:hover, #finish-button:hover {
     transform: scale(1.2);
+    transition: 1.2s;
 }
 
 .easy-button:hover {
     transform: scale(1.2);
+    transition: 0.5s;
 }
 
 .hard-button:hover {
     transform: scale(1.2);
+    
 }
 
 
 
 .button, .easy-button, .hard-button, .go-finish-page, #finish-button {
+  transition: 0.5s;
   position: relative;
-  overflow: hidden;
   align-self: center;
-  transition: background 400ms;
   color: #fff;
   background-color: #6200ee;
   font-family: 'Roboto', sans-serif;
+  padding: 10px;
   margin: 2rem;
-  height: 2.5vh;
-  width: 10vw;
-  font-size: 2vh;
+  font-size: 2rem;
   outline: 0;
   border: 0;
   border-radius:5px;
@@ -247,20 +266,22 @@ span.ripple {
   }
 
   table {
-    border: solid 3px black;
     width: 75%;
     margin-bottom: 5px;
     background: #fff;
   }
 
   table th {
+    padding: 10px;
+    border-radius: 5px;
     font-size: 2rem;
     font-weight: bold;
-    border: solid 2px black;
+    border: solid 2px #6200ee;;
     
   }
 
   td {
+    padding: 5px;
     font-size: 1.5rem;
-    border-bottom: 2px dotted violet;
+    border-bottom: 2px dotted #6200ee
   }
