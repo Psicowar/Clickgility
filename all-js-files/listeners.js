@@ -27,7 +27,7 @@ function showEasyPage() {
     
 }
 
-// shows 3s t   imer when clicking start and hides main-game-section
+// shows 3s timer when clicking start and hides main-game-section
 function checkValueInputName() {
     if (userNameBtn.value !== "") {
         showEasyPage()
@@ -70,19 +70,6 @@ function randomMove() {
     randomMoveBttn.style.transform = `translate(${positionX}px, ${positionY}px)`;
     console.log(positionX, positionY);
     
-    // let positionTop = Math.floor(Math.random()*500)+200;
-    // let positionLeft = Math.floor(Math.random()*500)+200;
-    // if (positionLeft < 0){
-    //     positionLeft *= -1;
-    // } else if (positionLeft >0 && positionLeft<50){
-    //     positionLeft += 50;
-    // }
-
-    // if (positionTop < 150){
-    //     positionTop += 150;
-    // }
-    // randomMoveBttn.style.left = positionTop + "px"; 
-    // randomMoveBttn.style.top = positionLeft + "px";   
 }
 
 
@@ -361,9 +348,6 @@ function updateLog(){
     }
     
 }  
-
-
-
 
 
 
