@@ -32,7 +32,7 @@ body, html{
     font-family: typeBomb;
 	text-align: center;
     align-self: center;
-	width: 86%;
+	width: 85%;
 	font-size: 4.5rem;
     user-select: none;
     cursor: default;
@@ -49,7 +49,6 @@ h1, h3, p{
 p {
     padding: 10px;
     border-radius: 5px;
-    background-color: rgba(15, 160, 170, 0.3);
 }
 
 .styled-result {
@@ -69,11 +68,13 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10vw;
-    height: 10vh;
+    text-align: center;
+    padding: 10px;
+    width: 11vw;
+    height: 11vh;
     border: 2px solid white;
     border-radius: 3px;
-    font-size: 2.2rem;
+    font-size: 1.7rem;
     border-radius: 20px;
     cursor: pointer;
     color: white;
@@ -92,9 +93,12 @@ p {
 
 
 #easy-game, #hard-game {
-    justify-content: center;
     text-align: center;
+
 }
+
+
+
 
 #effect {
 	animation: latidos 3s infinite;
@@ -113,7 +117,8 @@ p {
 
 
 #initial-id-page {
-    background-image: url(click.png);
+    background-image: url(gif\ click.gif);
+
 }
 
 .log {
@@ -161,14 +166,13 @@ p {
 
 .random-move {
     position: absolute;
-    display: block;
     transition: 0.5s transform;
 
 }
 
 .squad-name {
     text-align: center;
-    width: 88%;
+    width: 86%;
     align-self: center;
     background-color: #393e46;
     font-family: typeBomb;
