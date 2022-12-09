@@ -17,12 +17,10 @@
     <script src="all-js-files/listeners.js" defer></script>
   </head>
 
-
-
   <body>
     <header>
       <div class="head">
-        <img class="logo-img" src="logo1.png" alt="Image logo" />
+        <img class="logo-img" src="/img/logo1.png" alt="Image logo" />
         <h1 class="title-text" id="effect">Clickgility</h1>
       </div>
     </header>
@@ -93,20 +91,15 @@
         <button class="easy-button">Start Easy Game</button>
       </div>
 
-
-<!-- Contador 3 segundos -->
-
       <div class="play-page-style hidden-section" id="timer-3s">
-        <p class="countdown-3"></p>  
+        <p class="countdown-3">TIMER3S</p>  
       </div>
 
-      <!-- Timeout 10 sec -->
       <div class="play-page-style hidden-game" id="easy-game">
-        <p class="hidden-message countdown">TIMER</p> 
-        <button class="hidden-button clickon">SMASH ME!</button>
+        
+        <button class="hidden-button clickon">SMASH ME!<p class="hidden-message countdown-10">TIMER10S</p></button>
       </div>
 
-<!-- guardar resultado numero clicks en localStorage -->
 
       <div class="congratulations-message hidden-message" id = "message-box-easy">
         <p id="easyGameScore" class="styled-result">Your score is: </p>
@@ -124,15 +117,14 @@
     <section class="section-styles hidden-section" id="games-section-hard">
 
       <div class="play-page-style hidden-section" id="timer-3s-hard">
-        <p class="countdown-3 countdown-hard"></p>
+        <p class="countdown-3 countdown-hard">TIMER3S</p>
       </div>
 
       <div class="play-page-style hidden-game" id="hard-game">
-        <p class="hidden-message countdown">TIMER</p>
-        <button class="random-move clickon">PUSH ME!</button>
+        
+        <button class="hidden-button random-move">SMASH ME!<p class="hidden-message countdown-10-hard">TIMER10S</p></button>
       </div>
 
-        <!-- guardar resultado numero clicks en localStorage -->
       
       <div class="congratulations-message hidden-message" id = "message-box-hard">
         <p id="hardGameScore" class="styled-result">Your score is: </p>
@@ -146,27 +138,23 @@
         <button class="hidden-button go-finish-page">Check Your Score</button>
         
       </div>
-     
-      <!-- Timer 10 sec -->
+
     </section>
 
     <section class="section-styles hidden-section" id="finish-page">
         <div>
             <p id="user-Score"></p>
             <button class="go-to-initial" id="finish-button">Play again</button>
-            <!-- esto te lleva a la initial page -->
         </div>
     </section>
 
     <footer>
       <div class="footer-style">
           <h3 class="squad-name">SQUAD LOVELACE</h3>
-          <img class="logo-img2" src="logo1.png" alt="Image logo"/>
+          <img class="logo-img2" src="/img/logo1.png" alt="Image logo"/>
       </div> 
       
     </footer>
   </body>
-
-
 
 </html>
